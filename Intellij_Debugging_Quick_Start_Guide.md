@@ -1,9 +1,11 @@
 # Intellij Debugging Quick Start Guide
 
-
-
 ![Debugging](img/debugging.gif)
+
 ## Introduction
+
+Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. This will be time well spent so much so that future you will want to hop into a time machine propelled to 88mph, go back to today, and give you a BIG thank you for doing this. That's how useful this stuff will become.
+
 Hey now! Then why didn't you just teach us this stuff on day 1 ?!
 
 There's actually a very good reason for this. The role of the debugger is to amplify a programmer's debugging capabilties but certainly not to become a substitute for it. Just like a crippled person heavily relies on crutches, we should never allow the debugger to become your crutch so to speak. 
