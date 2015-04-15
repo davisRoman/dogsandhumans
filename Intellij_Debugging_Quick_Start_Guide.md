@@ -17,12 +17,7 @@ Ok, so I'll step off my soap box now and end my mini rant.
 
 An example project has been prepared to help demonstrate various debugging features called "dogs and humans"
 
-![dogs and humans] ( https://github.com/davisRoman/dogsandhumans )
-
-
-
-
-
+[dogs and humans](https://github.com/davisRoman/dogsandhumans)
 
 
 
