@@ -157,7 +157,7 @@ At this point, take another step and you should end up here.
 <br />
 Great, now the pluto object has been created and given a unique identifier of `Dog@646`
 
-## Frames also known as Activation Records Window
+## Frames ( aka Activation Records ) Window
 ![activation_records_window](img/activation_records_window.png)
 <br />
 - Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. As we add plates to the top of the pile, we generally remove the most recently added plates until we reach the last plate that has been longest on the pile.
