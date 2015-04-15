@@ -181,5 +181,15 @@ You're now in the getName method of the dog class but pay close attention to the
 <br />
 A new activation record (known as getName() ) has been created on top of the original record ( known as main() ) because we've now entered into a new method. `So what happened to the orignal record?` Did it suddenly get blown away? Of course not. It's still available however it's not currently active because we've now entered a new method with it's own set of local variables and as such its own activation record. Once we exit this method, its record is popped off the stack and we're now back on the original record that correspondes to main(). 
 <br />
+<br />
+Alright so here is the real kicker. Do you see the up and down arrows in the diagram for the activation records? These arrows let you inspect past activation records in order to see what their current state was when the current method was called. 
+The diagram below is quick illustration of what it looks like when we call methods from main() and these methods subsequently call even more methods and how we're able to return back to main(). The methods called in the innermost region of the diagram have the shortest lifetime where as the methods called the earliest ( towards the left ) have the longest lifetime.
+
+
+<br />
 ![activationRecordsWithReturnAddress](img/activationRecordsWithReturnAddress.png)
 <br />
+Using the above knowledge, we can easily answer questions such as the following:
+> Why did my method receive these funky parameters? And along those lines, what was the state of the parent method that called me? 
+
+This is super powerful when you start dealing with larger, more complex applications where the answer to the above kinds of questions won't be so clear.
