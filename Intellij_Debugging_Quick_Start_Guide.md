@@ -178,4 +178,8 @@ You're now in the getName method of the dog class but pay close attention to the
 <br />
 ![getName_activation_record](img/getName_activation_record.png)
 <br />
-A new activation record has been created on top of the original record because we've now entered into a method. So what happened to the orignal record? Did it suddenly get blown away? Of course not. It's still available except that we've now entered a new method with it's own set of local variables and as such its own activation record.
+<br />
+A new activation record (known as getName() ) has been created on top of the original record ( known as main() ) because we've now entered into a new method. `So what happened to the orignal record?` Did it suddenly get blown away? Of course not. It's still available however it's not currently active because we've now entered a new method with it's own set of local variables and as such its own activation record. Once we exit this method, its record is popped off the stack and we're now back on the original record that correspondes to main(). 
+<br />
+![activationRecordsWithReturnAddress](img/activationRecordsWithReturnAddress.png)
+<br />
