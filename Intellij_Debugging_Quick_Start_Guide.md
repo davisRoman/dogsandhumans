@@ -1,8 +1,9 @@
 # Intellij Debugging Quick Start Guide
 
-## Introduction
-Welcome! We're going to spend some time learning about the capabilities of the intellij debugger. This will be time well spent so much so that future *you* will want to hop into a time machine propelled to 88mph, go back to today, and give you a BIG thank you for doing this. That's how useful this stuff will become.
 
+
+![Debugging](img/debugging.gif)
+## Introduction
 Hey now! Then why didn't you just teach us this stuff on day 1 ?!
 
 There's actually a very good reason for this. The role of the debugger is to amplify a programmer's debugging capabilties but certainly not to become a substitute for it. Just like a crippled person heavily relies on crutches, we should never allow the debugger to become your crutch so to speak. 
@@ -154,7 +155,7 @@ At this point, take another step and you should end up here.
 <br />
 Great, now the pluto object has been created and given a unique identifier of `Dog@646`
 
-## Frames or Activation Records Window
+## Frames also known as Activation Records Window
 ![activation_records_window](img/activation_records_window.png)
 <br />
 - Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. As we add plates to the top of the pile, we generally remove the most recently added plates until we reach the last plate that has been longest on the pile.
@@ -164,7 +165,10 @@ Great, now the pluto object has been created and given a unique identifier of `D
 <br />
 <br />
 But don't take my word for it, let's see this in action!
+<br />
+<br />
 Let's keep stepping over until we reach line #19. Are you there yet?
+<br />
 <br />
 ![getName_method_line_19](img/getName_method_line_19.png)
 <br />
@@ -183,13 +187,16 @@ A new activation record (known as getName() ) has been created on top of the ori
 <br />
 <br />
 Alright so here is the real kicker. Do you see the up and down arrows in the diagram for the activation records? These arrows let you inspect past activation records in order to see what their current state was when the current method was called. 
-The diagram below is quick illustration of what it looks like when we call methods from main() and these methods subsequently call even more methods and how we're able to return back to main(). The methods called in the innermost region of the diagram have the shortest lifetime where as the methods called the earliest ( towards the left ) have the longest lifetime.
+The diagram below is a quick illustration of what it looks like when we call methods from main() and these methods subsequently call even more methods and how we're able to return back to main(). The methods called in the innermost region of the diagram have the shortest lifetime, because they're around for the least amount of time, where as the methods called the earliest ( towards the left ) have the longest lifetime.
 
 
 <br />
 ![activationRecordsWithReturnAddress](img/activationRecordsWithReturnAddress.png)
 <br />
 Using the above knowledge, we can easily answer questions such as the following:
-> Why did my method receive these funky parameters? And along those lines, what was the state of the parent method that called me? 
+> Why did my method receive these funky parameters? And along those lines, what was the state of the parent method that called my method? 
 
 This is super powerful when you start dealing with larger, more complex applications where the answer to the above kinds of questions won't be so clear.
+
+## List all breakpoints
+## Conditional breakpoints
