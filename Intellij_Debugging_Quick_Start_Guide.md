@@ -19,5 +19,163 @@ An example project has been prepared to help demonstrate various debugging featu
 
 [dogs and humans](https://github.com/davisRoman/dogsandhumans)
 
+### Setting our first breakpoint
 
+You should initially see this:
+<br />
+<br />
+![no breakpoint]( img/no_breakpoint.png )
 
+Let's create a breakpoint on the first line our program which happens to be:
+```java
+Dog spark = new Dog("sparky");
+```
+You'll create a breakpoint by clicking to the very right of the line number. Once a red dot appears, then a breakpoint has been created as shown below.
+<br />
+<br />
+![set breakpoint]( img/set_breakpoint.png )
+<br />
+</br />
+Once you've got your breakpoint then you're ready to proceed. 
+
+> *Definition* A `breakpoint` is an intentional stopping or pausing place in a program, put in place for debugging purposes. It is also sometimes simply referred to as a pause. More generally, a breakpoint is a means of acquiring knowledge about a program during its execution. During the interruption, the programmer inspects the test environment to find out whether the program is functioning as expected. 
+
+### Fire up a debug session
+You've created a breakpoint at this point but you're technically not debugging yet. 
+We have to run our application in a special debug mode in order to get the ability to single step through the code line by line. You can do this by simply clicking on Run->Debug
+
+![inititate debug session ]( img/Initiate_debug_session.png)
+<br />
+<br />
+Alternatively, you can click on the bug icon on the lower left vertical bar to initiate a debug session.
+<br />
+<br />
+![not_in_debug_session ]( img/not_in_debug_session.png)
+<br />
+<br />
+Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and press `Enter`
+<br />
+<br />
+![hit enter on main ] (img/hit_enter_on_main.png)
+
+So this is what you should see as soon as you're in the debugg session. Your breakpoint now turns blue. 
+
+#### A blue breakpoint signifies that it has NOT executed yet!
+
+![ debug_session_started ](img/debug_session_started.png)
+<br />
+<br />
+As you execute the program and declare variables, the `Variables` window will show you what variables the debugger is currently aware of. Please remember that only variables that are within scope will be shown. This is what your `Variables` window should look like at this very point in time.
+<br />
+<br />
+![ variables_window ](img/variables_window.png )
+<br />
+<br />
+## Debugging Features
+### Step-over 
+> *Definition* Step Over executes the procedure as a unit, and then steps to the next statement in the current procedure. Therefore, the next statement displayed is the next statement in the current procedure regardless of whether the current statement is a call to another procedure.
+
+So let's go ahead and click on the step over icon. You can either click on the `FUNCTION` key + F8 on your mac
+or click on Run -> Step Over
+<br />
+<br />
+![ step_over ] (img/step_over.png)
+<br />
+<br />
+Or click on the icon with the two circles stacked on top of eachother as shown below
+<br />
+<br />
+![ step_over2 ] (img/step_over2.png)
+<br />
+<br />
+So now we should see that our breakpoint has turned red indicating that the line just executed. If you look at the proceeding line, you'll notice that it has now turned blue indicating that it's the next line to be executed. Also notice the string "sparky : Dog@643" that just appeared next to our first line of code showing us the unique object id of our sparky object. This is the `inline debugging` feature of IntelliJ in action!
+<br />
+<br />
+![ took_one_step ](img/took_one_step.png )
+<br />
+<br />
+But hey now! Check out our `Variables` window. Do you notice anything different about it? It now shows us an object called sparky. If you click on its left arrow it will show us the contents of its private instance variable, name, that is currently set to sparky.  Do you also notice that that it says "Dog@643"? This is the unique object identifier that will become very handy in the future.
+<br />
+<br />
+![ variables_window_with_sparky_object ](img/variables_window_with_sparky_object.png )
+<br />
+<br />
+So why don't we take another step shall we ? Remember we want to `step over`
+<br />
+<br />
+![ took_two_steps ](img/took_two_steps.png )
+<br />
+<br />
+You'll now notice that the execution of our program moved forward one line and the inline dugger went ahead and showed us the unique object identifier for the Dog object called fido which happens to be 'Dog@645'
+<br />
+<br />
+![ variables_window_with_sparky_and_fido_objects ](img/variables_window_with_sparky_and_fido_objects.png )
+<br />
+Now our `Variables` window shows us two objects that we can inspect. Cool right?
+
+### Step-into
+> *Definition* Almost identical to how the step-over feature works except that the difference is that if the statement is a call to a method, the next statement displayed is the first statement in the method.
+
+So let's go ahead and click on the step into icon. You can either click on the `FUNCTION` key + F7 on your mac
+or click on Run -> Step into
+
+![Debugging_in_the_dog_class](img/Debugging_in_the_dog_class.png)
+<br />
+<br />
+![variables_window_while_in_dog_class](img/variables_window_while_in_dog_class.png)
+<br />
+<br />
+- So look at that! We ended up in the constructor of the Dog class. Does this make sense? We stepped into the declaration of the Dog object. ( Get it? Stepped into? ) Naturally, the first place we're taking to is the constructor. 
+<br />
+<br />
+- Also pay special attention to the variables window which shows us that `name` equals `pluto`
+because this was the value passed into our constructor 
+<br />
+<br />
+- Can you figure out why this.name is set to null. 
+<br />
+<br />
+- The answer is that technically we haven't executed the next line of code that sets this.name to pluto yet.
+<br />
+<br />
+Remember, while in debug mode you're dictating when the cpu is allowed to take the next step. You really are in control!
+<br />
+So now let's take a few more steps in order to exit out of the constructor, go ahead and click on step over until you're out of the constructor and you should end up here.
+<br />
+<br />
+![ took_two_steps ](img/took_two_steps.png )
+<br />
+<br />
+At this point, take another step and you should end up here.
+<br />
+<br />
+![stepping_past_pluto_object](img/stepping_past_pluto_object.png)
+<br />
+<br />
+Great, now the pluto object has been created and given a unique identifier of `Dog@646`
+
+## Frames or Activation Records Window
+![activation_records_window](img/activation_records_window.png)
+<br />
+- Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. As we add plates to the top of the pile, we generally remove the most recently added plates until we reach the last plate that has been longest on the pile.
+<br />
+<br />
+- These details will help you understand the `Frames` window shown above. It currently only contains a frame for the main method because the debugger is currently sitting in this method. However, every time we jump into a new method, a new frame is added to the top of the pile. This technique allows the cpu to dive into as many methods as necessary and then easily be able to unwind the stack and get back to where it initially started.
+<br />
+<br />
+But don't take my word for it, let's see this in action!
+Let's keep stepping over until we reach line #19. Are you there yet?
+<br />
+![getName_method_line_19](img/getName_method_line_19.png)
+<br />
+Once you reach line 19, go ahead and use `Step-into` to dive into the getName method
+<br />
+<br />
+![getName_method_of_dog_class](img/getName_method_of_dog_class.png)
+<br />
+You're now in the getName method of the dog class but pay close attention to the frame window. What's different?
+<br />
+<br />
+![getName_activation_record](img/getName_activation_record.png)
+<br />
+A new activation record has been created on top of the original record because we've now entered into a method. So what happened to the orignal record? Did it suddenly get blown away? Of course not. It's still available except that we've now entered a new method with it's own set of local variables and as such its own activation record.
