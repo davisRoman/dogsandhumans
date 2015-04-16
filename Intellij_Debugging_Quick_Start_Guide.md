@@ -226,7 +226,7 @@ Great, now the pluto object has been created and the pluto variable contains a r
 
 ![ stack ](img/stack-ops.png)
 
-- We always remove the most recently add plate from the top of the stack until we reach the last plate that has been longest on the pile.
+- We always remove the most recently add plate from the top of the pile until we reach the last plate that has been longest on the pile.
 <br />
 <br />
 - These details will help you understand the `Frames` window shown above. It currently only contains a frame for the main() method because the debugger is currently sitting in this method. However, every time we jump into a new method, a new frame is added to the top of the pile. This technique allows the cpu to dive into as many methods as necessary and then easily be able to unwind the stack and get back to where it initially started.
@@ -251,7 +251,7 @@ You're now in the getName method of the dog class but pay close attention to the
 ![getName_activation_record](img/getName_activation_record.png)
 <br />
 <br />
-A new activation record (known as getName() ) has been created on top of the original record ( known as main() ) because we've now entered into a new method. `So what happened to the orignal record?` Did it suddenly get blown away? Of course not. It's still available however it's not currently active because we've now entered a new method with its own set of local variables and as such its own activation record. Once we exit this method, its record is popped off the stack and we're now back on the original record that corresponds to main(). 
+A new activation record (known as getName() ) has been created on top of the original record ( known as main() ) because we've now entered into a new method. `So what happened to the orignal record?` Did it suddenly get blown away? Of course not. It's still available however it's not currently active because we've now entered a new method with its own set of local variables and as such its own activation record. Once we exit this method, the getName record is popped off the stack and we're now back on the original record that corresponds to main(). 
 <br />
 <br />
 Alright so here is the real kicker. Do you see the up and down arrows in the diagram for the activation records? These arrows let you inspect past activation records in order to see what their current state was when the current method was called. 
@@ -262,7 +262,7 @@ The diagram below is a quick illustration of what it looks like when we call met
 ![activationRecordsWithReturnAddress](img/activationRecordsWithReturnAddress.png)
 <br />
 Using the above knowledge, we can easily answer questions such as the following:
-> Why did my method receive these funky parameters? And along those lines, what was the state of the parent method that called my method? 
+> Why did my method receive these funky parameters? And along those lines, what was the state of the parent method that called my method? Also, why did I just get a stackOverflowError?!! 
 
 This is super powerful when you start dealing with larger, more complex applications where the answer to the above kinds of questions won't be so clear.
 
@@ -280,7 +280,7 @@ You may also wish to deactivate a breakpoint and you can do this on this menu by
 
 ## Conditional breakpoints
 
-As you become more and more proficient with breakpoints, you'll come to realize how nice it would be if breakpoints were a little smarter and able to activate themselves based on certain criteria. Imagine an arraylist of 100 employee objects and realizing that as you iterate through the array you always seem to have an issue with the 67th element. So the brute force method might be to single step 67 times but do you really want to do this? What if you make a modification and now you need to restart your debug session. Are you going to single step 67 times again? Hopefully by now you realized how much of a pain in the ass this would be.
+As you become more and more proficient with breakpoints, you'll come to realize how nice it would be if breakpoints were a little smarter and able to activate themselves based on certain criteria. Imagine an arraylist of 100 employee objects and realizing that as you iterate through the array you always seem to have an issue with the 67th element. So the brute force method might be to single step 67 times but do you really want to do this? What if you make a modification and now you need to restart your debug session? Are you going to single step 67 times again? Hopefully by now you realized how much of a pain in the ass this would be.
 
 Enter conditional breakpoints...
 
@@ -305,7 +305,9 @@ So here is what that looks like. We start with sparky and the number of woofs ge
 
 Imagine that we wanted to set a breakpoint for charlie because we suspected a possible issue with the number of woofs that he produces.
 
-So let's set a breakpoint in the for loop located in the speak method. The variable i keeps track of the number of letters in a dog's name which corresponds to the number of `woofs` produced. We might as well stick a breakpoint here and set the condition such that our breakpoints stops when i is equal to 6. ( Remember we're looking for charlie, which happens to have six letters in his name )
+So let's set a breakpoint in the for loop located in the speak method. The variable `i` keeps track of the number of letters in a dog's name which corresponds to the number of `woofs` produced. We might as well stick a breakpoint here and set the condition such that our breakpoints stops when `i` is equal to 6. ( Remember we're looking for charlie, which happens to have six letters in his name )
+<br />
+<br />
 ![ breakpoint in speak method ](img/breakpoint_in_speak_method.png)
 <br />
 <br />
@@ -315,17 +317,17 @@ We now need to set the correct condition otherwise this breakpoint activates eve
 ![ select_view_breakpoints ](img/select_view_breakpoints.png)
 <br />
 <br />
-We'll now see a dialog box and all you need to do at this point is ensure that the breakpoint that we want is properly selected within the list of all breakpoints located on the left hand side. We'll now ensure that the condition option is selected and finally, we set our condition. In this case our condition is i=6.    Done!
+We'll now see a dialog box and all you need to do at this point is ensure that the breakpoint that we want is properly selected within the list of all breakpoints located on the left hand side. We'll now ensure that the condition option is selected and finally, we set our condition. In this case our condition is `i`=6.    Done!
 <br />
 <br />
 ![ set breakpoint condition ] (img/set_breakpoint_condition.png)
 <br />
 <br />
-If you restart your debug session, you'll now see that we'll stop `ONLY` when our condition statement becomes true
+If you restart your debug session, you'll now see that we'll stop `ONLY` when our condition statement becomes true. I don't know about you but this is pretty cool.
 <br />
 <br />
 
-Ok, so let's try to look for charlie a different way. Instead of searching for the number of woofs that corresponds to the number of letters in his name. Let's look for the real charlie object. So in the OrderDogsToSpeak() method, we iterate through the list of dog objects that a human can have. Our breakpoint should activate when it reaches the object named “charlie” 
+Ok, so let's try to look for charlie in a different way. Instead of searching for the number of woofs that corresponds to the number of letters in his name, let's look for the real charlie object. So in the OrderDogsToSpeak() method, we iterate through the list of Dog objects that a human can have. Our breakpoint should activate when it reaches the object named “charlie” 
 
 > How can we do this?
 
@@ -344,6 +346,10 @@ currentDog.name.equals(“charlie”)
 ```
 ![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
 
+Done! Restart your debug session and be amazed at how smart your breakpoint has now become.
+
+Please keep in mind that these conditional statements can be as elaborate as you wish but for now this will do.
+ 
 ### Extra features that you can explore by yourself
 - Watch window
 - Evaluate expressions window
