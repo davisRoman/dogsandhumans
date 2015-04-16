@@ -201,6 +201,17 @@ Using the above knowledge, we can easily answer questions such as the following:
 This is super powerful when you start dealing with larger, more complex applications where the answer to the above kinds of questions won't be so clear.
 
 ## List all breakpoints
+
+You're allowed to create as many breakpoints as you wish and in order to view a full list, simply click on:
+```java
+Run -> View Breakpoints
+```
+On the left hand side of the dialog all breakpoints in your project will be shown.
+
+![ view breakpoints ] (img/breakpoint_menu.png)
+
+You may also wish to deactivate a breakpoint and you can do this on this menu by simply unchecking it.
+
 ## Conditional breakpoints
 
 As you become more and more proficient with breakpoints, you'll come to realize how nice it would be if breakpoints where a little smarter and were able to activate themselves based on certain criteria. Imagine an arraylist of 100 employee objects and realizing that as you iterate you always seem to have an issue with the 67th element. So the brute force method might be to single step 67 times but do you really want to do this? What if you make a modification and now you need to restart your debug session. Are you going to single step 67 times again? Hopefully by now you realized how much a pain in the ass this would be.
