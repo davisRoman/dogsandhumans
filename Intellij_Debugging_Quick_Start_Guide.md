@@ -280,6 +280,7 @@ currentDog.name.equals(“charlie”)
 
 ### So great job if you made it this far!
 
-
+Go off and ...
+<br />
 ![ debug all the things ] ( img/debug_all_the_things.jpg)
 
