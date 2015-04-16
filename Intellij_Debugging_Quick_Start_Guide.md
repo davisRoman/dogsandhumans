@@ -1,4 +1,4 @@
-# Intellij Debugging Quick Start Guide
+# Intellij Debugging ( Not so Quick ) Quick Start Guide
 
 ![Debugging](img/debugging.gif)
 
@@ -311,12 +311,7 @@ We'll now see a dialog box and all you need to do at this point is ensure that t
 <br />
 If you restart your debug session, you'll now see that we'll stop `ONLY` when our condition statement becomes true
 <br />
-#### ok, why don't we try this a different way. 
 <br />
-<br />
-
-## Congratulations, you're now well on your way to becoming a debugging champion!
-![ debuggin champion ] (img/chuck-norris-debugger-meme.jpg)
 
 Ok, so let's try to look for charlie a different way. Instead of searching for the number of woofs that corresponds to the number of letters in his name. Let's look for the real charlie object. So in the OrderDogsToSpeak() method, we iterate through the list of dog objects that a human can have. Our breakpoint should activate when it reaches the object named “charlie” 
 
@@ -344,6 +339,8 @@ currentDog.name.equals(“charlie”)
 
 ### So great job if you made it this far!
 
+## You're now well on your way to becoming a debugging champion!
+![ debuggin champion ] (img/chuck-norris-debugger-meme.jpg)
 
 Go off and ...
 <br />
