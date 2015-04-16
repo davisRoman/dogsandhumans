@@ -222,7 +222,7 @@ Great, now the pluto object has been created and the pluto variable contains a r
 ![activation_records_window](img/activation_records_window.png)
 <br />
 - Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. 
-- As we add plates to the top of the pile, we begin to grow our pile in a last in, first out scheme. 
+- As we add plates to the top of the pile, we begin to grow our pile in a last in, first out fashion. 
 
 ![ stack ](img/stack-ops.png)
 
