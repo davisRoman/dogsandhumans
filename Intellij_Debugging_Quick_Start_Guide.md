@@ -198,7 +198,8 @@ because this was the value passed into our constructor
 
 Can you figure out why ?
 <br />
-- If you figured that it's simply because we haven't executed the next line of code that sets the name variable then you're right!
+<br />
+If you figured that it's simply because we haven't executed the next line of code that sets the name variable then you're right!
 <br />
 <br />
 Remember, while in debug mode you're dictating when the cpu is allowed to take the next step. You really are in control!
