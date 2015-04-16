@@ -202,3 +202,69 @@ This is super powerful when you start dealing with larger, more complex applicat
 
 ## List all breakpoints
 ## Conditional breakpoints
+
+As you become more and more proficient with breakpoints, you'll come to realize how nice it would be if breakpoints where a little smarter and were able to activate themselves based on certain criteria. Imagine an arraylist of 100 employee objects and realizing that as you iterate you always seem to have an issue with the 67th element. So the brute force method might be to single step 67 times but do you really want to do this? What if you make a modification and now you need to restart your debug session. Are you going to single step 67 times again? Hopefully by now you realized how much a pain in the ass this would be.
+
+Enter conditional breakpoints...
+
+On line 57 of the `dog and human` example, you'll see that john, an instance of human, invokes his OrderDogsTospeak() method. Any dogs that he previously adopted will be ordered to speak, easy enough right?
+
+```java
+sparky: 
+~>woof,woof,woof,woof,woof,woof
+fido: 
+~>woof,woof,woof,woof
+charlie: 
+~>woof,woof,woof,woof,woof,woof,woof
+pluto: 
+~>woof,woof,woof,woof,woof
+```
+
+So here is what that looks like. We start with sparky and the number of woofs is a function of the number of characters in his name. Sparky has six letters in his name so six woofs are generated. The same pattern is repeated for all four dogs, sparky, fido, charlie and pluto.
+
+Imagine that we wanted to set a breakpoint for charlie because we suspect a possible issue with the number of woofs that he produces.
+
+So Let's set a breakpoint in the for loop located in the speak method. The variable i keeps track of the number of letters in a dogs name which corresponds to the number of woofs produced. We might as well stick a breakpoint here and set the condition such that our breakpoints stops when i is equal to 6. ( Remember we're looking for charlie, which happens to have 6 letters his name )
+![ breakpoint in speak method ](img/breakpoint_in_speak_method.png)
+<br />
+<br />
+We now need to set the correct condition otherwise this breakpoint activates every time the processor reaches it which is `NOT` what we want in this case. So let's go to Run -> View Breakpoints.
+<br />
+<br />
+![ select_view_breakpoints ](img/select_view_breakpoints.png)
+<br />
+<br />
+We'll now see a dialog box and all you need to do at this point is ensure that the breakpoint that we want is properly selected within the list of all breakpoints located on the left hand side. We'll now ensure that the condition option is selected and finally, we set our condition. In this case our condition is i=6.    Done!
+<br />
+<br />
+![ set breakpoint condition ] (img/set_breakpoint_condition.png)
+<br />
+<br />
+If you restart your debug session, you'll now see that we'll stop `ONLY` when our condition statement becomes true
+ok, why don't we try this a different way. 
+<br />
+<br />
+
+## Congratulations, you're now well on your way to becoming a debugging champion!
+![ debuggin champion ] (img/chuck-norris-debugger-meme.jpg)
+
+Ok, so let's try to look for charlie a different way. Instead of searching for the number of woofs that corresponds to the number of letters in his name. Let's look for the real charlie object. So in the OrderDogsToSpeak() method, we iterate through the list of dog objects that a human can have. Our breakpoint should activate when it reaches the object named “charlie” 
+
+> How can we do this?
+
+Lets start off by creating a breakpoint.
+
+![ breakpoint_in_OrderDogToSpeak_method ](img/breakpoint_in_OrderDogToSpeak_method.png)
+
+Click on Run -> View Breakpoints as before
+<br />
+<br />
+![ select view breakpoints ](img/select_view_breakpoints.png)
+
+This should look very familiar as before. Ensure that the correct breakpoint is select, enable the condition feature and set your condition. In this case, our condition is:
+```java
+currentDog.name.equals(“charlie”)
+```
+![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
+### Done ! Easy right?
+
