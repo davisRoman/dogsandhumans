@@ -17,7 +17,7 @@ But remember, nothing can substitute good programmer intuition!
 Ok, so I'll step off my soap box now and end my mini rant.
 
 ## Prerequisite: Scope and Lifetime of Variables
-This concept is super critical for making effect use of our debugger. At times, it may seem variables magically appear and disappear however this is no magic it simply boils down to understanding when variables come in and out of scope.
+This concept is critical for making effective use of the debugger. At times, it will seem as if variables magically appear and disappear however I assure you that there is no misdirection involved and it simply boils down to understanding when variables come in and go out of scope.
 So if the mouthwash is the only thing that initially came to mind then please definately check out
 [variable_scope](variable_scope.md)
 
