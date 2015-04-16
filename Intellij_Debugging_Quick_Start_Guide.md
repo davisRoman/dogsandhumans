@@ -18,7 +18,7 @@ Ok, so I'll step off my soap box now and end my mini rant.
 
 ## Scope and Lifetime of Variables
 If the mouthwash is the only thing that comes to mind, then you should probably checkout this page,
-![scope](scope.md)
+![variable_scope](variable_scope.md)
 
 ## ERRORS
 [ How errors make programmers feel ] ( img/compiler_why_you_hate_me.jpg)
