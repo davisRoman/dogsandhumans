@@ -277,5 +277,9 @@ This should look very familiar as before. Ensure that the correct breakpoint is 
 currentDog.name.equals(“charlie”)
 ```
 ![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
-### Done ! Easy right?
+
+### So great job if you made it this far!
+
+
+![ debug all the things ] ( img/debug_all_the_things.jpg)
 
