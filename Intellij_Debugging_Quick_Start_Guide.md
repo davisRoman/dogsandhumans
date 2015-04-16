@@ -6,20 +6,25 @@
 
 Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. I'm confident that this will be time well spent so much so that future *you* will likely want to hop into a time machine propelled to 88mph, go back to today, and give you a BIG thank you for doing this. That's how useful this stuff will become.
 
-Hey now! Then why didn't you just teach us this stuff on day 1 ?!
+Hey now! Then why didn't you just teach us this stuff on day one ?!
 
 There's actually a very good reason for this. The role of the debugger is to amplify a programmer's debugging capabilties but certainly not to become a substitute for it.
 
-Your goal as a programmer ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow by yourself. Once you've reach this point of critical mass then by all means use the debugger as much as you want.
+The goal of any good programmer ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow by yourself. Once you've reach this point of critical mass then by all means use the debugger as much as you want.
 
 But remember, nothing can substitute good programming intuition!
 
 Ok, so I'll step off my soap box now and end my mini rant.
 
 ## ERRORS
+[ How errors make programmers feel ] ( img/compiler_why_you_hate_me.jpg)
+
 No matter how smart or how careful you are, errors are your constant companion. With practice, you will get slightly better at not making errors, and much, much better at finding and correcting them.
 
-There are three kinds of errors: syntax errors, runtime errors, and logic errors.
+There are three kinds of errors: 
+- syntax errors
+- runtime errors
+- logic errors.
 
 ###Syntax errors
 
