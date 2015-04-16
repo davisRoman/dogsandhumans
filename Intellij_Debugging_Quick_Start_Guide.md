@@ -178,8 +178,8 @@ You can now change the name of the sparky object from "sparky" to "clifford"
 ### Step-into
 > *Definition* Almost identical to how the step-over feature works except that the difference is that if the statement is a call to a method, the next statement displayed is the first statement in the method.
 
-So let's go ahead and click on the step into icon. You can either click on the `FUNCTION` key + F7 on your mac
-or click on Run -> Step into
+So let's go ahead and click on the Step Into icon. You can either click on the `FUNCTION` key + F7 on your mac
+or click on Run -> Step Into
 
 ![Debugging_in_the_dog_class](img/Debugging_in_the_dog_class.png)
 <br />
@@ -187,21 +187,20 @@ or click on Run -> Step into
 ![variables_window_while_in_dog_class](img/variables_window_while_in_dog_class.png)
 <br />
 <br />
-- So look at that! We ended up in the constructor of the Dog class. Does this make sense? We stepped into the declaration of the Dog object. ( Get it? Stepped into? ) Naturally, the first place we're taking to is the constructor. 
+- So look at that! We stepped into the implementation of the Dog contructor because we tried to create an instance of Dog. Does this make sense?( Get it? Stepped into? )
 <br />
 <br />
 - Also pay special attention to the variables window which shows us that `name` equals `pluto`
 because this was the value passed into our constructor 
 <br />
 <br />
-- Can you figure out why 
-```java
-this.name 
-```
-is set to null?
+- If you presently take a look at the `Varibles` window you'll notice that `this.name` is set to `null`
+
+Can you figure out why ?
+
 <br />
 <br />
-- The answer is that technically we haven't executed the next line of code that sets `this.name` to pluto yet.
+- If you figured that it's simply because we haven't executed the next line of code that sets the name variable then you're right!
 <br />
 <br />
 Remember, while in debug mode you're dictating when the cpu is allowed to take the next step. You really are in control!
