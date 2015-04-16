@@ -248,8 +248,23 @@ ok, why don't we try this a different way.
 ## Congratulations, you're now well on your way to becoming a debugging champion!
 ![ debuggin champion ] (img/chuck-norris-debugger-meme.jpg)
 
-![ breakpoint_in_OrderDogToSpeak_method ](img/breakpoint_in_OrderDogToSpeak_method.png)
-![ select view breakpoints ](img/select_view_breakpoints.png)
-![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
+Ok, so let's try to look for charlie a different way. Instead of searching for the number of woofs that corresponds to the number of letters in his name. Let's look for the real charlie object. So in the OrderDogsToSpeak() method, we iterate through the list of dog objects that a human can have. Our breakpoint should activate when it reaches the object named “charlie” 
 
+> How can we do this?
+
+Lets start off by creating a breakpoint.
+
+![ breakpoint_in_OrderDogToSpeak_method ](img/breakpoint_in_OrderDogToSpeak_method.png)
+
+Click on Run -> View Breakpoints as before
+<br />
+<br />
+![ select view breakpoints ](img/select_view_breakpoints.png)
+
+This should look very familiar as before. Ensure that the correct breakpoint is select, enable the condition feature and set your condition. In this case, our condition is:
+```java
+currentDog.name.equals(“charlie”)
+```
+![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
+### Done ! Easy right?
 
