@@ -4,13 +4,13 @@
 
 ## Introduction
 
-Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. I'm confident that this will be time well spent so much so that future *you* will likely want to hop into a time machine propelled to 88mph, go back to today, and give you a BIG thank you for doing this. That's how useful this stuff will become.
+Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. I'm confident that this will be time well spent so much so that future *you* will likely want to hop into a time machine propelled at 88mph, go back to today, and give you a pat on the back for sitting through this. 
 
 Hey now! Then why didn't you just teach us this stuff on day one ?!
 
 There's actually a very good reason for this. The role of the debugger is to amplify a programmer's debugging capabilties but certainly not to become a substitute for it.
 
-The goal of any good programmer ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow by yourself. Once you've reach this point of critical mass then by all means use the debugger as much as you want.
+The goal of any good programmer ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow and solve issues by yourself. Once you've reach this point of critical mass then by all means use the debugger as much as you want.
 
 But remember, nothing can substitute good programmer intuition!
 
@@ -52,34 +52,36 @@ Runtime errors are intermediate in difficulty. Java tells you where it discovere
 
 ###Logic errors
 
-A logic error, or bug, is when your program compiles and runs, but does the wrong thing. The Java system, of course, has no idea what your program is supposed to do, so it provides no additional information to help you find the error.
+A logic error is when your program compiles and runs, but does the wrong thing. Java has no idea what your program is supposed to do, so it provides no additional information to help you find the error.
 
 Ways to track down a logic error include:
 
-Think about what the program must have done in order to produce the results it did. This will lead you to where the error must have occurred.
-Put in print statements to help you figure out what the program is actually doing.
-Use a debugger to step through your program and watch what it does.
+- Think about what the program must have done in order to produce the results it did. This will lead you to where the error must have occurred.
+- Put in print statements to help you figure out what the program is actually doing.
+- Use a debugger to step through your program and watch what it does.
 
 ## Debugging
 
 ![ debugging ] (img/debugging.jpg)
 
-An example project has been prepared to help demonstrate various debugging features called "dogs and humans"
+In order to  help demonstrate various debugging features, an example project called "dogs and humans" is provided. 
 
 [dogs and humans](https://github.com/davisRoman/dogsandhumans)
 
 ### Setting our first breakpoint
 
-Once you open up your project, you should initially see something like this:
+> *Definition:* A `breakpoint` is an intentional stopping or pausing place in a program, put in place for debugging purposes. It is also sometimes simply referred to as a pause. More generally, a breakpoint is a means of acquiring knowledge about a program during its execution. During the interruption, the programmer inspects the test environment to find out whether the program is functioning as expected. 
+
+Once you open up your "dogs and humans" project, you should initially see something like this:
 <br />
 <br />
 ![no breakpoint]( img/no_breakpoint.png )
 
-Let's create a breakpoint on the first line our program which happens to be:
+Let's create a breakpoint on the very first line of our program:
 ```java
 Dog spark = new Dog("sparky");
 ```
-You'll create a breakpoint by clicking to the very right of the line number. Once a red dot appears, then a breakpoint has been created as shown below.
+You'll create a breakpoint by clicking to the very right of the line number. Once a red dot appears then a breakpoint has been created as shown below.
 <br />
 <br />
 ![set breakpoint]( img/set_breakpoint.png )
@@ -87,11 +89,9 @@ You'll create a breakpoint by clicking to the very right of the line number. Onc
 </br />
 Once you've got your breakpoint then you're ready to proceed. 
 
-> *Definition* A `breakpoint` is an intentional stopping or pausing place in a program, put in place for debugging purposes. It is also sometimes simply referred to as a pause. More generally, a breakpoint is a means of acquiring knowledge about a program during its execution. During the interruption, the programmer inspects the test environment to find out whether the program is functioning as expected. 
-
 ### Fire up a debug session in IntelliJ
 You've created a breakpoint at this point but you're technically not debugging yet. 
-We have to run our application in a special debug mode in order to get the ability to single step through the code line by line. 
+We have to run our application in a special debug mode in order to get the ability to single step through the code. 
 
 You can do this by simply clicking on Run -> Debug
 
@@ -104,19 +104,19 @@ Alternatively, you can click on the bug icon on the lower left vertical bar to i
 ![not_in_debug_session ]( img/not_in_debug_session.png)
 <br />
 <br />
-Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and select it.
+Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and select `Main`.
 <br />
 <br />
 ![hit enter on main ] (img/hit_enter_on_main.png)
 
-So this is what you should see as soon as you're in the debugg session. Your breakpoint now turns blue. 
+So this is what you should see as soon as you're in the debug session. Your breakpoint now turns blue. 
 
-#### A blue breakpoint signifies that it has NOT executed yet!
+#### Note: A blue breakpoint signifies that it has NOT executed yet!
 
 ![ debug_session_started ](img/debug_session_started.png)
 <br />
 <br />
-As you execute the program and declare variables, the `Variables` window will show you what variables the debugger is currently aware of. Please remember that only variables that are within scope will be shown. This is what your `Variables` window should look like at this very point in time.
+As we step through our code, the `Variables` window will become a very useful tool to help us understand which variables are presently in scope or in other words, which variables the debugger is currently aware of. This is what your `Variables` window should look like at this very point in time.
 <br />
 <br />
 ![ variables_window ](img/variables_window.png )
@@ -124,9 +124,9 @@ As you execute the program and declare variables, the `Variables` window will sh
 <br />
 ## Specific Debugging Features
 ### Step-over 
-> *Definition* Step Over executes the procedure as a unit, and then steps to the next statement in the current procedure. Therefore, the next statement displayed is the next statement in the current procedure regardless of whether the current statement is a call to another procedure.
+> *Definition:* The Step Over feature executes a line of code as a complete unit, and then steps to the next statement in the current method body. Therefore, the next statement displayed is the next statement in the current procedure regardless of whether the current statement is a call to another procedure or not.
 
-So let's go ahead and click on the step over icon. You can either click on the `FUNCTION` key + F8 on your mac
+So let's go ahead and click on the Step Over icon. You can either click on the `FUNCTION` key + F8 on your mac
 or click on Run -> Step Over
 <br />
 <br />
@@ -165,6 +165,15 @@ You'll now notice that the execution of our program moved forward one line and t
 ![ variables_window_with_sparky_and_fido_objects ](img/variables_window_with_sparky_and_fido_objects.png )
 <br />
 Now our `Variables` window shows us two objects that we can inspect. Cool right?
+
+Something you may also want to do is change the state of your objects in real-time.
+As long as the variable is currently in scope, you can select sparky's instance variable, name, in the `Variables` window and right click on `Set Value`
+<br />
+![ sparky set value ] (img/sparky_set_value.png)
+
+You can now change the name of the sparky object from "sparky" to "clifford"
+
+![ change name of sparky to clifford ] ( img/change_name_of_sparky_to_clifford.png)
 
 ### Step-into
 > *Definition* Almost identical to how the step-over feature works except that the difference is that if the statement is a call to a method, the next statement displayed is the first statement in the method.
