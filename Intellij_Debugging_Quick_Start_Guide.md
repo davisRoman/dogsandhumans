@@ -321,6 +321,11 @@ currentDog.name.equals(“charlie”)
 ```
 ![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
 
+### Extra features that you can explore by yourself
+- Watch window
+- Evaluate expressions window
+- Remote process debugging ( Check out the weatherclock project for details )
+
 ### So great job if you made it this far!
 
 
