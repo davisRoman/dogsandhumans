@@ -4,18 +4,51 @@
 
 ## Introduction
 
-Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. This will be time well spent so much so that future you will want to hop into a time machine propelled to 88mph, go back to today, and give you a BIG thank you for doing this. That's how useful this stuff will become.
+Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. I'm confident that this will be time well spent so much so that future *you* will likely want to hop into a time machine propelled to 88mph, go back to today, and give you a BIG thank you for doing this. That's how useful this stuff will become.
 
 Hey now! Then why didn't you just teach us this stuff on day 1 ?!
 
-There's actually a very good reason for this. The role of the debugger is to amplify a programmer's debugging capabilties but certainly not to become a substitute for it. Just like a crippled person heavily relies on crutches, we should never allow the debugger to become your crutch so to speak. 
+There's actually a very good reason for this. The role of the debugger is to amplify a programmer's debugging capabilties but certainly not to become a substitute for it.
 
-Your task ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow by yourself. Once you've reach this point, then by all means use the debugger as much as you want.
+Your goal as a programmer ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow by yourself. Once you've reach this point of critical mass then by all means use the debugger as much as you want.
 
 But remember, nothing can substitute good programming intuition!
 
 Ok, so I'll step off my soap box now and end my mini rant.
 
+## ERRORS
+No matter how smart or how careful you are, errors are your constant companion. With practice, you will get slightly better at not making errors, and much, much better at finding and correcting them.
+
+There are three kinds of errors: syntax errors, runtime errors, and logic errors.
+
+###Syntax errors
+
+These are errors where the compiler finds something wrong with your program, and you can't even try to execute it. For example, you may have incorrect punctuation, or may be trying to use a variable that hasn't been declared.
+
+Syntax errors are the easiest to find and correct. The compiler will tell you where it got into trouble, and its best guess as to what you did wrong. Usually the error is on the exact line indicated by the compiler, or the line just before it; however, if the problem is incorrectly nested braces, the actual error may be at the beginning of the nested block.
+
+###Runtime errors
+
+If there are no syntax errors, Java may detect an error while your program is running. You will get an error message telling you the kind of error, and a stack trace that tells not only where the error occurred, but also what other method or methods you were in. For example,
+```java
+Exception in thread "main" java.lang.NullPointerException
+        at Car.placeInCity(Car.java:25)
+        at City.<init>(City.java:38)
+        at City.main(City.java:49)
+```
+This says that a NullPointerException was detected in the method placeCarInCity at line 25 in Car.java, which was called from the constructor for City at line 38 in City.java, which was called from the main method at line 49 in City.java. Sometimes there will be additional lines describing methods in the Java system itself; you can ignore these.
+
+Runtime errors are intermediate in difficulty. Java tells you where it discovered that your program had gone wrong, but you need to trace back from there to figure out where the problem originated.
+
+###Logic errors
+
+A logic error, or bug, is when your program compiles and runs, but does the wrong thing. The Java system, of course, has no idea what your program is supposed to do, so it provides no additional information to help you find the error.
+
+Ways to track down a logic error include:
+
+Think about what the program must have done in order to produce the results it did. This will lead you to where the error must have occurred.
+Put in print statements to help you figure out what the program is actually doing.
+Use a debugger to step through your program and watch what it does.
 ## Debugging with dogs and humans
 
 An example project has been prepared to help demonstrate various debugging features called "dogs and humans"
@@ -24,7 +57,7 @@ An example project has been prepared to help demonstrate various debugging featu
 
 ### Setting our first breakpoint
 
-You should initially see this:
+Once you open up your project, you should initially see something like this:
 <br />
 <br />
 ![no breakpoint]( img/no_breakpoint.png )
@@ -43,9 +76,11 @@ Once you've got your breakpoint then you're ready to proceed.
 
 > *Definition* A `breakpoint` is an intentional stopping or pausing place in a program, put in place for debugging purposes. It is also sometimes simply referred to as a pause. More generally, a breakpoint is a means of acquiring knowledge about a program during its execution. During the interruption, the programmer inspects the test environment to find out whether the program is functioning as expected. 
 
-### Fire up a debug session
+### Fire up a debug session in IntelliJ
 You've created a breakpoint at this point but you're technically not debugging yet. 
-We have to run our application in a special debug mode in order to get the ability to single step through the code line by line. You can do this by simply clicking on Run->Debug
+We have to run our application in a special debug mode in order to get the ability to single step through the code line by line. 
+
+You can do this by simply clicking on Run->Debug
 
 ![inititate debug session ]( img/Initiate_debug_session.png)
 <br />
@@ -56,7 +91,7 @@ Alternatively, you can click on the bug icon on the lower left vertical bar to i
 ![not_in_debug_session ]( img/not_in_debug_session.png)
 <br />
 <br />
-Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and press `Enter`
+Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and select it
 <br />
 <br />
 ![hit enter on main ] (img/hit_enter_on_main.png)
@@ -277,5 +312,11 @@ This should look very familiar as before. Ensure that the correct breakpoint is 
 currentDog.name.equals(“charlie”)
 ```
 ![ set conditional breakpoint for charlie ] (img/set_conditional_breakpoint_for_charlie.png)
-### Done ! Easy right?
+
+### So great job if you made it this far!
+
+
+Go off and ...
+<br />
+![ debug all the things ] ( img/debug_all_the_things.jpg)
 
