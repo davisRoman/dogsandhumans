@@ -221,7 +221,12 @@ Great, now the pluto object has been created and the pluto variable contains a r
 ## Frames ( aka Activation Records ) Window
 ![activation_records_window](img/activation_records_window.png)
 <br />
-- Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. As we add plates to the top of the pile, we generally remove the most recently added plates until we reach the last plate that has been longest on the pile.
+- Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. 
+- As we add plates to the top of the pile, we begin to grow our pile in a last in, first out scheme. 
+
+![ stack ](img/stack-ops.png)
+
+- We always remove the most recently add plate from the top of the stack until we reach the last plate that has been longest on the pile.
 <br />
 <br />
 - These details will help you understand the `Frames` window shown above. It currently only contains a frame for the main() method because the debugger is currently sitting in this method. However, every time we jump into a new method, a new frame is added to the top of the pile. This technique allows the cpu to dive into as many methods as necessary and then easily be able to unwind the stack and get back to where it initially started.
