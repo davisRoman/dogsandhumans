@@ -5,7 +5,7 @@ package nyc.c4q.davisroman;
  */
 public class Dog {
 
-    String name;
+    private String name;
 
     public Dog(String name){
         this.name = name;
@@ -16,14 +16,14 @@ public class Dog {
     }
 
     void speak(){
+        int i;
 
         System.out.print("~>");
-        int i;
-        int length = name.length();
-        for ( i =0; i < length; i ++){
+
+        for ( i =0; i < name.length(); i ++){
             System.out.print("woof");
 
-            if (i < length - 1 ){
+            if (i < name.length() - 1 ){
                 System.out.print(",");
             }
         }

@@ -7,8 +7,8 @@ import java.util.Iterator;
  * Created by davis on 4/14/15.
  */
 public class Human {
-    String name;
-    ArrayList<Dog> myDogs = new ArrayList<Dog>();
+    private String name;
+    private ArrayList<Dog> myDogs = new ArrayList<Dog>();
 
     public Human(String name){
         this.name = name;
