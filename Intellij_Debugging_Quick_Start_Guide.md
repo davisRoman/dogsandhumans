@@ -12,7 +12,7 @@ There's actually a very good reason for this. The role of the debugger is to amp
 
 The goal of any good programmer ( if you choose to accept it ) is to develop enough skill such that you're able to manually step through a program in order to figure out the flow by yourself. Once you've reach this point of critical mass then by all means use the debugger as much as you want.
 
-But remember, nothing can substitute good programming intuition!
+But remember, nothing can substitute good programmer intuition!
 
 Ok, so I'll step off my soap box now and end my mini rant.
 
@@ -54,7 +54,10 @@ Ways to track down a logic error include:
 Think about what the program must have done in order to produce the results it did. This will lead you to where the error must have occurred.
 Put in print statements to help you figure out what the program is actually doing.
 Use a debugger to step through your program and watch what it does.
-## Debugging with dogs and humans
+
+## Debugging
+
+![ debugging ] (img/debugging.jpg)
 
 An example project has been prepared to help demonstrate various debugging features called "dogs and humans"
 
