@@ -1,4 +1,4 @@
-# Intellij Debugging ( Not so Quick ) Quick Start Guide
+# The Intellij Debugging ( Not so Quick ) Quick Start Guide
 
 ![Debugging](img/debugging.gif)
 
