@@ -262,7 +262,7 @@ The diagram below is a quick illustration of what it looks like when we call met
 Using the above knowledge, we can easily answer questions such as the following:
 > Why did my method receive these funky parameters? What was the state of the parent method that called my method? Why did I just get a stackOverflowError?!! 
 
-This is super powerful when you start dealing with larger, more complex applications where the answer to the above kinds of questions won't be so clear.
+This is very useful when you start dealing with larger, more complex applications where the answer to the above kinds of questions won't be so clear.
 
 ## List all breakpoints
 
