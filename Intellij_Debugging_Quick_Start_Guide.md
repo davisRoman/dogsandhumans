@@ -353,12 +353,12 @@ Please keep in mind that these conditional statements can be as elaborate as you
 - Evaluate expressions window
 - Remote process debugging ( Check out the weatherclock project for details )
 
-### So great job if you made it this far!
+### Great job if you made it this far!
 
 ## You're now well on your way to becoming a debugging champion!
 ![ debuggin champion ] (img/chuck-norris-debugger-meme.jpg)
 
-Go off and ...
+So go off and ...
 <br />
 ![ debug all the things ] ( img/debug_all_the_things.jpg)
 
