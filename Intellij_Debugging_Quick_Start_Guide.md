@@ -197,7 +197,6 @@ because this was the value passed into our constructor
 - If you presently take a look at the `Varibles` window you'll notice that `this.name` is set to `null`
 
 Can you figure out why ?
-
 <br />
 <br />
 - If you figured that it's simply because we haven't executed the next line of code that sets the name variable then you're right!
