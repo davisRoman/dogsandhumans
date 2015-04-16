@@ -41,7 +41,7 @@ Exception in thread "main" java.lang.NullPointerException
         at City.<init>(City.java:38)
         at City.main(City.java:49)
 ```
-This says that a NullPointerException was detected in the method placeCarInCity at line 25 in Car.java, which was called from the constructor for City at line 38 in City.java, which was called from the main method at line 49 in City.java. Sometimes there will be additional lines describing methods in the Java system itself; you can ignore these.
+This says that a NullPointerException was detected in the method placeCarInCity at line 25 in Car.java, which was called from the constructor for City at line 38 in City.java, which was called from the main() method at line 49 in City.java. Sometimes there will be additional lines describing methods in the Java system itself; you can ignore these.
 
 Runtime errors are intermediate in difficulty. Java tells you where it discovered that your program had gone wrong, but you need to trace back from there to figure out where the problem originated.
 
@@ -88,7 +88,7 @@ Once you've got your breakpoint then you're ready to proceed.
 You've created a breakpoint at this point but you're technically not debugging yet. 
 We have to run our application in a special debug mode in order to get the ability to single step through the code line by line. 
 
-You can do this by simply clicking on Run->Debug
+You can do this by simply clicking on Run -> Debug
 
 ![inititate debug session ]( img/Initiate_debug_session.png)
 <br />
@@ -99,7 +99,7 @@ Alternatively, you can click on the bug icon on the lower left vertical bar to i
 ![not_in_debug_session ]( img/not_in_debug_session.png)
 <br />
 <br />
-Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and select it
+Regardless of how which step you choose, you should now see the `Run` window as shown below. Go ahead and select it.
 <br />
 <br />
 ![hit enter on main ] (img/hit_enter_on_main.png)
@@ -117,7 +117,7 @@ As you execute the program and declare variables, the `Variables` window will sh
 ![ variables_window ](img/variables_window.png )
 <br />
 <br />
-## Debugging Features
+## Specific Debugging Features
 ### Step-over 
 > *Definition* Step Over executes the procedure as a unit, and then steps to the next statement in the current procedure. Therefore, the next statement displayed is the next statement in the current procedure regardless of whether the current statement is a call to another procedure.
 
@@ -128,7 +128,7 @@ or click on Run -> Step Over
 ![ step_over ] (img/step_over.png)
 <br />
 <br />
-Or click on the icon with the two circles stacked on top of eachother as shown below
+Or click on the icon with the two circles stacked on top of eachother as shown below.
 <br />
 <br />
 ![ step_over2 ] (img/step_over2.png)
@@ -140,7 +140,9 @@ So now we should see that our breakpoint has turned red indicating that the line
 ![ took_one_step ](img/took_one_step.png )
 <br />
 <br />
-But hey now! Check out our `Variables` window. Do you notice anything different about it? It now shows us an object called sparky. If you click on its left arrow it will show us the contents of its private instance variable, name, that is currently set to sparky.  Do you also notice that that it says "Dog@643"? This is the unique object identifier that will become very handy in the future.
+But hey now! Check out our `Variables` window. Do you notice anything different about it? It now shows us an object called sparky. If you click on its left arrow it will show us the contents of its private instance variable, name, that is currently set to sparky.  Do you also notice that it says "Dog@643"? 
+
+This unique object identifier will become even more handy in the future.
 <br />
 <br />
 ![ variables_window_with_sparky_object ](img/variables_window_with_sparky_object.png )
@@ -152,7 +154,7 @@ So why don't we take another step shall we ? Remember we want to `step over`
 ![ took_two_steps ](img/took_two_steps.png )
 <br />
 <br />
-You'll now notice that the execution of our program moved forward one line and the inline dugger went ahead and showed us the unique object identifier for the Dog object called fido which happens to be 'Dog@645'
+You'll now notice that the execution of our program moved forward one line and the inline debugger went ahead and showed us the unique object identifier for the Dog object called fido which happens to be 'Dog@645'
 <br />
 <br />
 ![ variables_window_with_sparky_and_fido_objects ](img/variables_window_with_sparky_and_fido_objects.png )
@@ -178,10 +180,14 @@ or click on Run -> Step into
 because this was the value passed into our constructor 
 <br />
 <br />
-- Can you figure out why this.name is set to null. 
+- Can you figure out why 
+```java
+this.name 
+```
+is set to null?
 <br />
 <br />
-- The answer is that technically we haven't executed the next line of code that sets this.name to pluto yet.
+- The answer is that technically we haven't executed the next line of code that sets `this.name` to pluto yet.
 <br />
 <br />
 Remember, while in debug mode you're dictating when the cpu is allowed to take the next step. You really are in control!
@@ -198,7 +204,7 @@ At this point, take another step and you should end up here.
 ![stepping_past_pluto_object](img/stepping_past_pluto_object.png)
 <br />
 <br />
-Great, now the pluto object has been created and given a unique identifier of `Dog@646`
+Great, now the pluto object has been created and the pluto variable contains a reference to the object `Dog@646`
 
 ## Frames ( aka Activation Records ) Window
 ![activation_records_window](img/activation_records_window.png)
@@ -206,7 +212,7 @@ Great, now the pluto object has been created and given a unique identifier of `D
 - Your local variables are created inside what is called a frame (otherwise known as an activation record ) on a structure known as the stack where the most recently added object is the first one that is eligible to be removed. In real life, a stack can be thought of as a pile of plates. As we add plates to the top of the pile, we generally remove the most recently added plates until we reach the last plate that has been longest on the pile.
 <br />
 <br />
-- These details will help you understand the `Frames` window shown above. It currently only contains a frame for the main method because the debugger is currently sitting in this method. However, every time we jump into a new method, a new frame is added to the top of the pile. This technique allows the cpu to dive into as many methods as necessary and then easily be able to unwind the stack and get back to where it initially started.
+- These details will help you understand the `Frames` window shown above. It currently only contains a frame for the main() method because the debugger is currently sitting in this method. However, every time we jump into a new method, a new frame is added to the top of the pile. This technique allows the cpu to dive into as many methods as necessary and then easily be able to unwind the stack and get back to where it initially started.
 <br />
 <br />
 But don't take my word for it, let's see this in action!
@@ -228,11 +234,11 @@ You're now in the getName method of the dog class but pay close attention to the
 ![getName_activation_record](img/getName_activation_record.png)
 <br />
 <br />
-A new activation record (known as getName() ) has been created on top of the original record ( known as main() ) because we've now entered into a new method. `So what happened to the orignal record?` Did it suddenly get blown away? Of course not. It's still available however it's not currently active because we've now entered a new method with it's own set of local variables and as such its own activation record. Once we exit this method, its record is popped off the stack and we're now back on the original record that correspondes to main(). 
+A new activation record (known as getName() ) has been created on top of the original record ( known as main() ) because we've now entered into a new method. `So what happened to the orignal record?` Did it suddenly get blown away? Of course not. It's still available however it's not currently active because we've now entered a new method with its own set of local variables and as such its own activation record. Once we exit this method, its record is popped off the stack and we're now back on the original record that corresponds to main(). 
 <br />
 <br />
 Alright so here is the real kicker. Do you see the up and down arrows in the diagram for the activation records? These arrows let you inspect past activation records in order to see what their current state was when the current method was called. 
-The diagram below is a quick illustration of what it looks like when we call methods from main() and these methods subsequently call even more methods and how we're able to return back to main(). The methods called in the innermost region of the diagram have the shortest lifetime, because they're around for the least amount of time, where as the methods called the earliest ( towards the left ) have the longest lifetime.
+The diagram below is a quick illustration of what it looks like when we call methods from main() and these methods subsequently call even more methods and how we're able to return back to main(). The methods called in the innermost region of the diagram have the shortest lifetime, because they're around for the least amount of time, where as the methods called the earliest ( towards the left ) have the longest lifetime. As child methods run to completion, they return to their parent method and this keeps happening until we end up back in main(). Once main itself runs to completion then the program is finished.
 
 
 <br />
@@ -257,7 +263,7 @@ You may also wish to deactivate a breakpoint and you can do this on this menu by
 
 ## Conditional breakpoints
 
-As you become more and more proficient with breakpoints, you'll come to realize how nice it would be if breakpoints where a little smarter and were able to activate themselves based on certain criteria. Imagine an arraylist of 100 employee objects and realizing that as you iterate you always seem to have an issue with the 67th element. So the brute force method might be to single step 67 times but do you really want to do this? What if you make a modification and now you need to restart your debug session. Are you going to single step 67 times again? Hopefully by now you realized how much a pain in the ass this would be.
+As you become more and more proficient with breakpoints, you'll come to realize how nice it would be if breakpoints were a little smarter and able to activate themselves based on certain criteria. Imagine an arraylist of 100 employee objects and realizing that as you iterate through the array you always seem to have an issue with the 67th element. So the brute force method might be to single step 67 times but do you really want to do this? What if you make a modification and now you need to restart your debug session. Are you going to single step 67 times again? Hopefully by now you realized how much of a pain in the ass this would be.
 
 Enter conditional breakpoints...
 
@@ -274,11 +280,15 @@ pluto:
 ~>woof,woof,woof,woof,woof
 ```
 
-So here is what that looks like. We start with sparky and the number of woofs is a function of the number of characters in his name. Sparky has six letters in his name so six woofs are generated. The same pattern is repeated for all four dogs, sparky, fido, charlie and pluto.
+So here is what that looks like. We start with sparky and the number of woofs generated is a function of the number of characters in his name. Sparky has six letters in his name so six woofs are produced. The same pattern is repeated for all four dogs: 
+- sparky
+- fido
+- charlie
+- pluto.
 
-Imagine that we wanted to set a breakpoint for charlie because we suspect a possible issue with the number of woofs that he produces.
+Imagine that we wanted to set a breakpoint for charlie because we suspected a possible issue with the number of woofs that he produces.
 
-So Let's set a breakpoint in the for loop located in the speak method. The variable i keeps track of the number of letters in a dogs name which corresponds to the number of woofs produced. We might as well stick a breakpoint here and set the condition such that our breakpoints stops when i is equal to 6. ( Remember we're looking for charlie, which happens to have 6 letters his name )
+So let's set a breakpoint in the for loop located in the speak method. The variable i keeps track of the number of letters in a dog's name which corresponds to the number of `woofs` produced. We might as well stick a breakpoint here and set the condition such that our breakpoints stops when i is equal to 6. ( Remember we're looking for charlie, which happens to have six letters in his name )
 ![ breakpoint in speak method ](img/breakpoint_in_speak_method.png)
 <br />
 <br />
@@ -295,7 +305,8 @@ We'll now see a dialog box and all you need to do at this point is ensure that t
 <br />
 <br />
 If you restart your debug session, you'll now see that we'll stop `ONLY` when our condition statement becomes true
-ok, why don't we try this a different way. 
+<br />
+#### ok, why don't we try this a different way. 
 <br />
 <br />
 
