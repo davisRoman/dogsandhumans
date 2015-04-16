@@ -227,8 +227,6 @@ Great, now the pluto object has been created and the pluto variable contains a r
 ![ stack ](img/stack-ops.png)
 
 - We always remove the most recently add plate from the top of the pile until we reach the last plate that has been longest on the pile.
-<br />
-<br />
 - These details will help you understand the `Frames` window shown above. It currently only contains a frame for the main() method because the debugger is currently sitting in this method. However, every time we jump into a new method, a new frame is added to the top of the pile. This technique allows the cpu to dive into as many methods as necessary and then easily be able to unwind the stack and get back to where it initially started.
 <br />
 <br />
