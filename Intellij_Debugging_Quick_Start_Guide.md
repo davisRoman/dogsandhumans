@@ -315,7 +315,7 @@ We now need to set the correct condition otherwise this breakpoint activates eve
 ![ select_view_breakpoints ](img/select_view_breakpoints.png)
 <br />
 <br />
-We'll now see a dialog box and all you need to do at this point is ensure that the breakpoint that we want is properly selected within the list of all breakpoints located on the left hand side. We'll now ensure that the condition option is selected and finally, we set our condition. In this case our condition is `i`=6.    Done!
+We'll now see a dialog box and all you need to do at this point is ensure that the breakpoint that we want is properly selected within the list of all breakpoints located on the left hand side. We'll now ensure that the condition option is selected and finally, we set our condition. In this case our condition is `i==6`.    Done!
 <br />
 <br />
 ![ set breakpoint condition ] (img/set_breakpoint_condition.png)
