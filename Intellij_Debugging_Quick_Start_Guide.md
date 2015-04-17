@@ -2,6 +2,15 @@
 
 ![Debugging](img/debugging.gif)
 
+
+
+
+```
+Update - Check out the youtube version of this tutorial! 
+```
+
+[ IntelliJ Debugging Guide - Youtube ] (https://youtu.be/PMq6Zp2qfcE)
+
 ## Introduction
 
 Welcome! We're going to spend some time learning about the capabilities of the Intellij debugger. I'm confident that this will be time well spent so much so that future *you* will likely want to hop into a time machine propelled at 88mph, go back to today, and give you a pat on the back for sitting through this. 
