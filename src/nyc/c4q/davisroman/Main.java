@@ -25,7 +25,7 @@ public class Main {
         System.out.println("My name is: " + fakeDog.getName());
 
 
-        System.exit(0); //TODO:
+        //System.exit(0);
 
         System.out.println();
         System.out.println("(Section #2) (╯°□°）╯︵ ┻━┻ "); // Flip all them tables
@@ -44,7 +44,7 @@ public class Main {
         john.listmydogs();
 
 
-        System.exit(0); //TODO
+        //System.exit(0);
 
         System.out.println();
         System.out.println("(Section #3) (╯°□°）╯︵ ┻━┻ "); // Flip all them tables
@@ -56,7 +56,7 @@ public class Main {
         // John commands all of his lovable poochies to speak.
         john.OrderDogsTospeak();
 
-        System.exit(0); //TODO
+        //System.exit(0);
 
         System.out.println();
         System.out.println("(Section #4) (╯°□°）╯︵ ┻━┻ "); // Flip all them tables
