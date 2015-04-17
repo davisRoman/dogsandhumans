@@ -6,9 +6,8 @@
 
 
 ```
-Update - Check out the youtube version of this tutorial! 
+Check out the youtube version of this tutorial! 
 ```
-
 [ IntelliJ Debugging Guide - Youtube ] (https://youtu.be/PMq6Zp2qfcE)
 
 ## Introduction
