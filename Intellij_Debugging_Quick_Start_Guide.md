@@ -87,7 +87,7 @@ Once you open up your "dogs and humans" project, you should initially see someth
 
 Let's create a breakpoint on the very first line of our program:
 ```java
-Dog spark = new Dog("sparky");
+Dog sparky = new Dog("sparky");
 ```
 You'll create a breakpoint by clicking to the very right of the line number. Once a red dot appears then a breakpoint has been created as shown below.
 <br />
